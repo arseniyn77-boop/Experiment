@@ -43,6 +43,13 @@ function App() {
     setExperiments(experiments.filter(exp => exp.id !== id));
   };
 
+  // 5. Фильтрация и подсчёт
+  const filteredExperiments = filter === 'Все' 
+    ? experiments 
+    : experiments.filter(exp => exp.status === filter);
+
+  const completedCount = experiments.filter(exp => exp.status === STATUSES.COMPLETED).length;
+
 }
 
 export default App;
