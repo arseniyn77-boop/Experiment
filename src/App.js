@@ -50,6 +50,27 @@ function App() {
 
   const completedCount = experiments.filter(exp => exp.status === STATUSES.COMPLETED).length;
 
+  return (
+
+    <form onSubmit={handleAdd} style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+        <input 
+          type="text" 
+          value={name} 
+          onChange={(e) => setName(e.target.value)} 
+          placeholder="Название эксперимента" 
+          required 
+          style={{ flexGrow: 1, padding: '8px' }}
+        />
+        <select value={status} onChange={(e) => setStatus(e.target.value)} style={{ padding: '8px' }}>
+          <option value={STATUSES.PLAN}>{STATUSES.PLAN}</option>
+          <option value={STATUSES.IN_PROCESS}>{STATUSES.IN_PROCESS}</option>
+          <option value={STATUSES.COMPLETED}>{STATUSES.COMPLETED}</option>
+        </select>
+        <button type="submit" style={{ padding: '8px 16px', cursor: 'pointer' }}>Добавить</button>
+      </form>
+
+  )
+
 }
 
 export default App;
