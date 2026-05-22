@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+
+const STATUSES = {
+  PLAN: 'План',
+  IN_PROCESS: 'В процессе',
+  COMPLETED: 'Завершён',
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const [experiments, setExperiments] = useState(() => {
+    const saved = localStorage.getItem('experiments');
+    return saved ? JSON.parse(saved) : [];
+  });
+  
+  const [name, setName] = useState('');
+  const [status, setStatus] = useState(STATUSES.PLAN);
+  const [filter, setFilter] = useState('Все');
+
+
 }
 
 export default App;
