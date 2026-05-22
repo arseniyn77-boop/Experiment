@@ -38,6 +38,11 @@ function App() {
     setStatus(STATUSES.PLAN);
   };
 
+  // 4. Удаление
+  const handleDelete = (id) => {
+    setExperiments(experiments.filter(exp => exp.id !== id));
+  };
+
 }
 
 export default App;
