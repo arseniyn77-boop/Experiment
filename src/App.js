@@ -22,6 +22,22 @@ function App() {
     localStorage.setItem('experiments', JSON.stringify(experiments));
   }, [experiments]);
 
+  // 3. Добавление эксперимента
+  const handleAdd = (e) => {
+    e.preventDefault();
+    if (!name.trim()) return;
+    
+    const newExperiment = {
+      id: Date.now(), 
+      name: name.trim(),
+      status: status
+    };
+    
+    setExperiments([...experiments, newExperiment]);
+    setName(''); 
+    setStatus(STATUSES.PLAN);
+  };
+
 }
 
 export default App;
