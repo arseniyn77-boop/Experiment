@@ -52,6 +52,9 @@ function App() {
 
   return (
 
+  <div style={{ maxWidth: '600px', margin: '40px auto', padding: '20px', fontFamily: 'system-ui, sans-serif' }}>
+    <h2>Учёт экспериментов</h2>
+
     <form onSubmit={handleAdd} style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
         <input 
           type="text" 
@@ -68,6 +71,7 @@ function App() {
         </select>
         <button type="submit" style={{ padding: '8px 16px', cursor: 'pointer' }}>Добавить</button>
       </form>
+  </div>
 
   )
 
